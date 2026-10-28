@@ -1,10 +1,14 @@
 from django.contrib import admin
-from .models import Dormitory,Profile,Resource,Booking
+from .models import University,Dormitory,Profile,Resource,Booking
 
+
+@admin.register(University)
+class UniversityAdmin(admin.ModelAdmin):
+    list_display = ('name','city')
 
 @admin.register(Dormitory)
 class DormitoryAdmin(admin.ModelAdmin):
-    list_display = ('name','address')
+    list_display = ('name','university','address')
 
 
 @admin.register(Profile)
